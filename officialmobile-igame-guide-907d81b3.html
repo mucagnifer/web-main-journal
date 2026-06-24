@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 – 稳定入口与服务说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        /* ---------- hero ---------- */
+        .hero {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid #e9eef2;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0b1e33;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #334155;
+            max-width: 620px;
+        }
+
+        .hero .tagline {
+            background: #f1f5f9;
+            display: inline-block;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #1e3a5f;
+            margin-top: 1.2rem;
+            border: 1px solid #dce4ea;
+        }
+
+        /* ---------- 卡片区域 ---------- */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0a1b2e;
+            border-left: 4px solid #3b7eb0;
+            padding-left: 0.75rem;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.03), 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f283f;
+        }
+
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #2c3e50;
+        }
+
+        .card ul {
+            margin: 0.5rem 0 0 1.2rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: #eef4fa;
+            border-radius: 30px;
+            padding: 0.2rem 0.9rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #1a4e7a;
+            border: 1px solid #cbdbe9;
+            margin-right: 0.4rem;
+        }
+
+        /* ---------- 说明区 + FAQ摘要 ---------- */
+        .mix-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.8rem 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 2rem;
+        }
+
+        .mix-block .faq-item {
+            margin-top: 1rem;
+            border-top: 1px solid #edf2f6;
+            padding-top: 1rem;
+        }
+
+        .mix-block .faq-item:first-of-type {
+            margin-top: 0.6rem;
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #0a1e32;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #2c3e50;
+            margin-top: 0.2rem;
+            font-size: 0.95rem;
+        }
+
+        .mix-block p {
+            margin-bottom: 0.75rem;
+        }
+
+        /* ---------- 底部 ---------- */
+        .footer-links {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.8rem;
+        }
+
+        .footer-links a {
+            color: #2563a0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #2563a0;
+        }
+
+        .footer-links .copyright {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-top: 0.6rem;
+            width: 100%;
+            text-align: right;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (min-width: 600px) {
+            .card-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem;
+            }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1.2rem 0.8rem; }
+            .hero { padding: 1.8rem 1.2rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .card { padding: 1.3rem; }
+            .mix-block { padding: 1.3rem; }
+            .footer-links { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .footer-links .copyright { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>爱游戏 · 稳定入口</h1>
+        <p>从一个可靠的页面出发，了解游戏资讯、资源与社区动态。不需要反复寻找，每次访问都能回到同一处整理好的起点。</p>
+        <span class="tagline">持续维护 · 信息聚合</span>
+    </div>
+
+    <!-- 优势区（卡片） -->
+    <h2 class="section-title">为什么选择这个入口</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>结构清晰，减少试错</h3>
+            <p>页面内容按板块组织，省去在多个标签页之间来回跳转的时间。常用分类、推荐内容以及更新提示都集中展示。</p>
+        </div>
+        <div class="card">
+            <h3>长期维护的地址</h3>
+            <p>入口保持稳定，不会频繁更换链接。你只需要记住一个地方，就能获取与游戏相关的说明和指引。</p>
+        </div>
+        <div class="card">
+            <h3>适合日常使用</h3>
+            <p>无论是浏览新内容、查阅常见问题，还是回顾之前看到的信息，都能从这里快速衔接。</p>
+        </div>
+        <div class="card">
+            <h3>轻量且直观</h3>
+            <p>没有过度设计或多余跳转，页面专注在信息本身。卡片式布局和柔和配色让阅读体验更舒适。</p>
+        </div>
+    </div>
+
+    <!-- 说明区 + FAQ摘要 -->
+    <div class="mix-block">
+        <h2 class="section-title" style="border-left-color: #5f8db3;">关于这个页面</h2>
+        <p>这个页面是围绕游戏相关需求整理的说明页，并非官方客户端或下载站点。它的作用是作为一个稳定的信息参照点——当你想要了解某些功能、查看更新说明或者回顾平台结构时，可以回到这里。</p>
+        <p>所有内容均基于公开信息与常规使用经验整理，不包含任何破解、外挂或违规资源。页面本身仅提供说明和引导，具体服务由对应平台提供。</p>
+
+        <div class="faq-item">
+            <div class="faq-q">❓ 如何找到爱游戏的最新信息？</div>
+            <div class="faq-a">你可以通过 <a href="https://officialmobile-igame.com">爱游戏</a> 这个稳定地址随时访问。该页面会保持更新，并汇总当前重要的说明与链接。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 页面上的链接都是安全的吗？</div>
+            <div class="faq-a">本页面提供的链接均指向官方或经过核实的地址，不包含第三方广告或诱导跳转。但请你在访问任何网站时也自行留意环境安全。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 为什么推荐使用这个入口？</div>
+            <div class="faq-a">因为入口长期不变，并且内容按板块整理，省去记忆多个地址的麻烦。你可以把它当作一个游戏信息的“桌面”。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <div class="nav">
+            <a href="https://officialmobile-igame.com">爱游戏</a>
+            <a href="#">常见问题</a>
+            <a href="#">内容说明</a>
+            <a href="#">更新记录</a>
+        </div>
+        <div class="copyright">© 稳定入口 · 信息整理页</div>
+    </div>
+
+</div>
+</body>
+</html>
